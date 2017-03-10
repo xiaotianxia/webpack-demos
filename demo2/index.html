@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>webpack demo2 + <%= htmlWebpackPlugin.options.title%></title>
+    
+    <!-- inline形式引入main.js -->
+    <script>
+        <%= compilation.assets[htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length)].source()%>
+    </script>
+</head>
+<body>
+    <div>webpack test  now is <%= htmlWebpackPlugin.options.date%></div>
+    <!-- 这是注释 -->
+    
+    <!-- 保证main.js以inline形式插入，其他的以外链形式引入 -->
+    <% for(var key in htmlWebpackPlugin.files.chunks) {%>
+        <% if( key !== 'main') {%>
+            <script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks[key].entry%>"></script>
+        <%}%>
+    <%}%>
+</body>
+</html>

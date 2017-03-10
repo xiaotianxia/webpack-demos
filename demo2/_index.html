@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>webpack demo2 + <%= htmlWebpackPlugin.options.title%></title>
+    <!-- 读取htmlWebpackPlugin的参数 -->
+    <script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks.main.entry%>"></script>
+</head>
+<body>
+    <div>webpack test  now is <%= htmlWebpackPlugin.options.date%></div>
+    <!-- 这是注释 -->
+    
+    <script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks.a.entry%>"></script>
+    <script type="text/javascript" src="buddle.js"></script>
+</body>
+</html>
